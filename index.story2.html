@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Magical Journey</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display&family=Roboto+Slab&family=Indie+Flower&family=Raleway&family=Quicksand&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fceabb, #d5efff, #ffd6e0, #e0ffe1, #fff1c1);
+      background-size: 600% 600%;
+      animation: moveGradient 20s ease infinite;
+      min-height: 100vh;
+      padding: 2rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes moveGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .title-font { font-family: 'Pacifico', cursive; }
+    .childhood-font { font-family: 'Indie Flower', cursive; }
+    .school-font { font-family: 'Roboto Slab', serif; }
+    .college-font { font-family: 'Raleway', sans-serif; }
+    .hobby-font { font-family: 'Quicksand', sans-serif; }
+    .dream-font { font-family: 'Playfair Display', serif; }
+    .secret-font { font-family: 'Courier New', monospace; }
+
+    section {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-blend-mode: lighten;
+      position: relative;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .upload-label {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.05);
+      color: #333;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      margin-left: 10px;
+    }
+
+    .heading-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .sun {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #FFD700 30%, #FFA500 70%);
+      border-radius: 50%;
+      box-shadow: 0 0 40px #ffcc00;
+      animation: spin 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: cloudMove 60s linear infinite;
+    }
+
+    .cloud::before, .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .cloud1 {
+      top: 60px;
+      left: -200px;
+      width: 120px;
+      height: 60px;
+    }
+
+    .cloud2 {
+      top: 140px;
+      left: -300px;
+      width: 180px;
+      height: 80px;
+    }
+
+    .cloud1::before {
+      width: 80px;
+      height: 80px;
+      top: -20px;
+      left: 20px;
+    }
+
+    .cloud1::after {
+      width: 60px;
+      height: 60px;
+      top: 10px;
+      left: 60px;
+    }
+
+    .cloud2::before {
+      width: 100px;
+      height: 100px;
+      top: -10px;
+      left: 30px;
+    }
+
+    .cloud2::after {
+      width: 80px;
+      height: 80px;
+      top: 20px;
+      left: 80px;
+    }
+
+    @keyframes cloudMove {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(150vw); }
+    }
+
+    .birds {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      z-index: 0;
+      animation: flyBirds 30s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes flyBirds {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    svg {
+      fill: #333;
+      width: 100px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌞 Sun -->
+  <div class="sun"></div>
+
+  <!-- ☁️ Clouds -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+
+  <!-- 🐦 Birds -->
+  <div class="birds">
+    <svg viewBox="0 0 64 64">
+      <path d="M2,32 C12,10 24,10 32,32 C40,10 52,10 62,32" />
+    </svg>
+  </div>
+
+  <!-- 🌟 Title -->
+  <h1 class="title-font text-center text-5xl text-purple-700 mb-10 relative z-10" contenteditable="true">
+    🌟 My Magical Journey 🌟
+  </h1>
+
+  <div class="space-y-10 max-w-4xl mx-auto relative z-10">
+
+    <!-- Section Template -->
+    <section id="childhoodSection" class="bg-pink-50 p-6 rounded-xl shadow-lg">
+      <div class="heading-wrapper">
+        <h2 class="childhood-font text-3xl text-pink-600">1. Childhood</h2>
+        <label for="childhoodUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="childhoodUpload" accept="image/*" />
+      </div>
+      <p class="childhood-font text-lg text-pink-800 mt-2" contenteditable="true">
+        Write about your childhood here...
+      </p>
+    </section>
+
+    <section id="schoolSection" class="bg-yellow-50 p-6 rounded-xl shadow-lg">
+      <div class="heading-wrapper">
+        <h2 class="school-font text-3xl text-yellow-600">2. Schooling & College Days</h2>
+        <label for="schoolUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="schoolUpload" accept="image/*" />
+      </div>
+      <p class="school-font text-lg text-yellow-800 mt-2" contenteditable="true">
+        Share your school and college memories...
+      </p>
+    </section>
+
+    <section id="hobbySection" class="bg-green-50 p-6 rounded-xl shadow-lg">
+      <div class="heading-wrapper">
+        <h2 class="hobby-font text-3xl text-green-600">3. Hobbies & Passions</h2>
+        <label for="hobbyUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="hobbyUpload" accept="image/*" />
+      </div>
+      <p class="hobby-font text-lg text-green-800 mt-2" contenteditable="true">
+        Your favorite hobbies and passions...
+      </p>
+    </section>
+
+    <section id="dreamSection" class="bg-blue-50 p-6 rounded-xl shadow-lg">
+      <div class="heading-wrapper">
+        <h2 class="dream-font text-3xl text-blue-600">4. Dreams & Future</h2>
+        <label for="dreamUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="dreamUpload" accept="image/*" />
+      </div>
+      <p class="dream-font text-lg text-blue-800 mt-2" contenteditable="true">
+        What does your dream life look like?
+      </p>
+    </section>
+
+    <section id="secretSection" class="bg-gray-100 p-6 rounded-xl shadow-lg">
+      <div class="heading-wrapper">
+        <h2 class="secret-font text-3xl text-gray-700">5. A Secret I Never Told</h2>
+        <label for="secretUpload" class="upload-label">Upload Image</label>
+        <input type="file" id="secretUpload" accept="image/*" />
+      </div>
+      <p class="secret-font text-lg text-gray-900 mt-2" contenteditable="true">
+        Something you've never shared before...
+      </p>
+    </section>
+
+  </div>
+
+  <!-- 🌈 Upload Image Script -->
+  <script>
+    const sections = [
+      ['childhoodUpload', 'childhoodSection'],
+      ['schoolUpload', 'schoolSection'],
+      ['hobbyUpload', 'hobbySection'],
+      ['dreamUpload', 'dreamSection'],
+      ['secretUpload', 'secretSection'],
+    ];
+
+    sections.forEach(([inputId, sectionId]) => {
+      const input = document.getElementById(inputId);
+      const section = document.getElementById(sectionId);
+      input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          section.style.backgroundImage = `url(${event.target.result})`;
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  </script>
+</body>
+</html>
+
